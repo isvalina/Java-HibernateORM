@@ -1,0 +1,4 @@
+@Override
+    public String toString() {
+        return "Maraka: " + getMaraka()+ " " + "Vesta: " + getVesta()+ " Kuna: " + getKuna() + " " + "Dukserica: " + getDukserica();
+    }
