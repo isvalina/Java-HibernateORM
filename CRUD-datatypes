@@ -41,7 +41,7 @@ SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
             JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
         }
         
- // delete
+ // valueChanged
  txtTreci.setText(s.getTreciputa()+ " ");
  
  <!-- BOOLEAN -->
