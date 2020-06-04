@@ -1,0 +1,73 @@
+<!-- DOUBLE (Decimal) -->
+
+//create, update
+c.setMaraka(Double.parseDouble(txtMaraka.getText()));
+
+// valueChanged
+txtMaraka.setText(c.getMaraka()+ " ");
+
+<!-- DATE -->
+
+//create
+SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        df.setLenient(false);
+        try {
+            s.setPrviputa(df.parse(txtPrvi.getText()));
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+
+        }
+        
+        try {
+            s.setTreciputa(df.parse(txtTreci.getText()));
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+
+        }
+        
+ // update
+ SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        df.setLenient(false);
+
+        try {
+            s.setTreciputa(df.parse(txtTreci.getText()));
+        } catch (ParseException ex) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+        }
+        
+        try {
+            s.setPrviputa(df.parse(txtPrvi.getText()));
+        } catch (ParseException ex) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+        }
+        
+ // delete
+ txtTreci.setText(s.getTreciputa()+ " ");
+ 
+ <!-- BOOLEAN -->
+ 
+ // create, update
+ boolean isSelected1 = cb1.isSelected();
+
+        if (isSelected1) {
+            s.setEkstrovertno(true);
+        } else {
+            s.setEkstrovertno(false);
+        }
+        
+
+// valueChanged
+
+boolean isSelected1 = cb1.isSelected();
+
+            if (isSelected1) {
+                cb1.setSelected(s.getEkstrovertno());
+                //vk.getAktivan();
+            } else {
+                 cb1.setSelected(s.getEkstrovertno());
+            }
+ 
+ 
+ 
+ 
+ 
