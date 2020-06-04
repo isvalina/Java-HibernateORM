@@ -1,0 +1,68 @@
+// create
+
+SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        df.setLenient(false);
+        try {
+            s.setPrviputa(df.parse(txtPrvi.getText()));
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+
+        }
+        
+        try {
+            s.setTreciputa(df.parse(txtTreci.getText()));
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+
+        }
+        
+// update
+
+SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        df.setLenient(false);
+
+        try {
+            s.setTreciputa(df.parse(txtTreci.getText()));
+        } catch (ParseException ex) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+        }
+        
+        try {
+            s.setPrviputa(df.parse(txtPrvi.getText()));
+        } catch (ParseException ex) {
+            JOptionPane.showConfirmDialog(getRootPane(), "Niste unijeli dobar format datuma");
+        }
+        
+// lstValueChanged
+
+        private void lstSestraValueChanged(javax.swing.event.ListSelectionEvent evt) {                                       
+        try {
+            DefaultListModel m = (DefaultListModel) lstSestra.getModel();
+            Sestra s = (Sestra) m.get(lstSestra.getSelectedIndex());
+            txtTreci.setText(s.getTreciputa()+ " ");
+            txtPrvi.setText(s.getPrviputa()+ " ");
+            txtNausnica.setText(s.getNausnica() + " ");
+            txtSuknja.setText(s.getSuknja());
+            txtBojaOciju.setText(s.getBojaociju());
+            txtKuna.setText(s.getKuna() + " ");
+
+        } catch (Exception e) {
+        }
+    }  
+    
+// delete
+
+Sestra s;
+        try {
+            DefaultListModel m = (DefaultListModel) lstSestra.getModel();
+            s = (Sestra) m.get(lstSestra.getSelectedIndex());
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(rootPane, "Prvo odaberite stavku");
+            return;
+        }
+        try {
+            os.delete(s);
+        } catch (Exception ex) {
+            JOptionPane.showConfirmDialog(rootPane, "Prvo odaberite stavku");
+        }
+        ucitaj();
